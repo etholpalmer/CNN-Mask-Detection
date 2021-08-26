@@ -33,7 +33,10 @@ ap.add_argument("-p", "--plot", type=str, default="plot.png",
 ap.add_argument("-m", "--model", type=str,
 	default="mask_detector.model",
 	help="path to output face mask detector model")
-args = vars(ap.parse_args())
+#args = vars(ap.parse_args())
+args = {}
+args["dataset"] = "./dataset"
+args["plot"]    = "plot.png"
 
 # initialize the initial learning rate, number of epochs to train for,
 # and batch size
@@ -138,7 +141,7 @@ print(classification_report(testY.argmax(axis=1), predIdxs,
 
 # serialize the model to disk
 print("[INFO] saving mask detector model...")
-model.save(args["model"], save_format="h5")
+#model.save(args["model"], save_format="h5")
 
 # plot the training loss and accuracy
 N = EPOCHS
