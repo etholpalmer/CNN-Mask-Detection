@@ -42,6 +42,7 @@ filenames = [
                 if os.path.splitext(x)[1].lower()=='.jpg'
                 or os.path.splitext(x)[1].lower()=='.png'
             ]
+
 rVal = {}
 
 for img_file_name in filenames:
@@ -104,7 +105,6 @@ for img_file_name in filenames:
             # include the probability in the label
             #label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
 
-            
             # display the label and bounding box rectangle on the output
             # frame
             # cv2.putText(image, label, (startX, startY - 10),
