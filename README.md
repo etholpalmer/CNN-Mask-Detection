@@ -10,9 +10,9 @@ ___
 
 According to the World Health Organization (2021), the COVID-19 disease is a highly contagious and pathogenic viral infection caused by a new coronavirus called SARS-CoV-2.  The WHO first learned of this new virus in December 2019, following a report of a cluster of cases of viral pneumonia in the province of Wuhan, located in the People's Republic of China. 
 
-The COVID-19 arrival has stopped the world due to its severity and adverse effects on humans. COVID-19 causes mild symptoms in most cases, including dry cough, tiredness, and fever, though fever may not be a symptom for some older people. Other mild symptoms include aches and pains, nasal congestion, runny nose, sore throat or diarrhea (WHO, 2021).
+The COVID-19 arrival has stopped the world due to its severity and adverse effects on humans. According to the WHO, mild symptoms of COVID-19 includes dry cough, tiredness, and fever. However, fever may not be a symptom for some older people. Other mild symptoms include aches and pains, nasal congestion, runny nose, sore throat or diarrhea.
 
-Furthermore, some people can become infected but do not develop and show any symptoms. Most people recover from the disease without needing special treatment. However, around one out of every six people who get COVID-19 becomes seriously ill and has difficulty breathing (Centers for Disease Control and Prevention, 2021).
+Furthermore, some people can become infected but do not develop and show any symptoms. In some cases, some people recover from the disease naturally. But it does not mean that everybody is safe from transmitting the disease. In fact, one out of six people who contracts COVID-19 becomes seriously ill and this could prove lethal to the person causing several organ failures (Centers for Disease Control and Prevention, 2021)
 
 According to CDC (2021), the recovery period for patients with acute symptoms depends on severity. A person should stay quarantined or be in self-isolation if affected by a coronavirus. Getting the covid-19 vaccination is highly advised to curb the spread of the virus but is not mandatory. 
 
@@ -21,7 +21,7 @@ The whole world is putting a lot of time into research to increase the efficacy 
 Since covid-19 vaccination is not mandatory, most governing bodies of each country highly advise people to wear a mask to help restrict the spread of the virus.
 The WHO and the CDC have also suggested using face masks to decrease the spread of the virus. 
 
-The primary purpose of a face mask is to trap the droplets that are discharged from a person's mouth while communicating, sneezing, or coughing. Facemask is most effective when it covers the mouth
+Face masks are effective in trapping the droplets that are discharged from a person's mouth while communicating, sneezing, or coughing. Facemask is most effective when it covers the mouth
 and the nose to trap the water droplets. 
 
 Our facemask model aims to detect whether or not a person is wearing a mask or not. 
