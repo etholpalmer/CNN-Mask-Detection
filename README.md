@@ -1,6 +1,6 @@
 # Project-Two: Mask Detection 
 
-[Grace Zai](https://github.com/GrazeZai) , [John Mangahas](https://github.com/AdoboPeanuts/) , [Martin Mangahas](https://github.com/martsymarts/) , [Ethol Palmer](https://github.com/etholpalmer/) , [Monique Rowe](https://github.com/moniquerowe15)
+[Grace Zai](https://github.com/Gracezai) , [John Mangahas](https://github.com/AdoboPeanuts/) , [Martin Mangahas](https://github.com/martsymarts/) , [Ethol Palmer](https://github.com/etholpalmer/) , [Monique Rowe](https://github.com/moniquerowe15)
 
 _____
 ## Introduction 
@@ -9,7 +9,7 @@ According to the World Health Organization (2021), the COVID-19 disease is a hig
 
 The COVID-19 arrival has stopped the world due to its severity and adverse effects on humans. COVID-19 causes mild symptoms in most cases, including dry cough, tiredness, and fever, though fever may not be a symptom for some older people. Other mild symptoms include aches and pains, nasal congestion, runny nose, sore throat or diarrhea (WHO, 2021)
 
-Furthermore, some people can become infected but do not develop and show any symptoms. Most people recover from the disease without needing special treatment. However, around one out of every six people who get COVID-19 becomes seriously ill and has difficulty breathing (Centers for Disease Control and Prevention, 2021)
+Furthermore, some people can become infected but do not develop and show any symptoms. Most people recover from the disease without needing special treatment. However, around one out of every six people who get COVID-19 becomes seriously ill and has difficulty breathing (Centers for Disease Control and Prevention, 2021).
 
 According to CDC (2021), the recovery period for patients with acute symptoms depends on severity. A person should stay quarantined or be in self-isolation if affected by a coronavirus. Getting the covid-19 vaccination is highly advised to curb the spread of the virus but is not mandatory. 
 
