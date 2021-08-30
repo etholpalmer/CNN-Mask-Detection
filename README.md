@@ -6,7 +6,7 @@ ___
 ## Background
 ___
 
-![background](Images/background.png)
+![background](Images/background1.png)
 
 According to the World Health Organization (2021), the COVID-19 disease is a highly contagious and pathogenic viral infection caused by a new coronavirus called SARS-CoV-2.  The WHO first learned of this new virus in December 2019, following a report of a cluster of cases of viral pneumonia in the province of Wuhan, located in the People's Republic of China. 
 
