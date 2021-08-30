@@ -12,7 +12,7 @@ According to the World Health Organization (2021), the COVID-19 disease is a hig
 
 The COVID-19 arrival has stopped the world due to its severity and adverse effects on humans. According to the WHO, mild symptoms of COVID-19 include dry cough, tiredness, and fever. However, fever may not be a symptom for some older people. Other mild symptoms include aches and pains, nasal congestion, runny nose, sore throat or diarrhea.
 
-Furthermore, some people can become infected but do not develop and show any symptoms. In some cases, some people recover from the disease naturally. But it does not mean that everybody is entirely safe from contracting and transmitting the disease. One out of six people who get COVID-19 becomes seriously ill and can be highly harmful to the person causing several organ failures (Centers for Disease Control and Prevention, 2021)
+Furthermore, some people can become infected but do not develop and show any symptoms. In some cases, some people recover from the disease naturally. But it does not mean that everybody is entirely safe from contracting and transmitting the disease. One out of six people who get COVID-19 becomes seriously ill (Centers for Disease Control and Prevention, 2021).
 
 According to CDC (2021), the recovery period for patients with acute symptoms depends on severity. A person should stay quarantined or be in self-isolation if affected by a coronavirus. Getting the covid-19 vaccination is highly advised to curb the spread of the virus but is not mandatory. 
 
