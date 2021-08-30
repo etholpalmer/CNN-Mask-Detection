@@ -18,8 +18,7 @@ According to CDC (2021), the recovery period for patients with acute symptoms de
 
 The whole world is putting a lot of time into research to increase the efficacy of vaccines and treatments for the novel coronavirus. Understanding how to treat the virus and keep it from spreading is also an issue we currently face. 
 
-Since covid-19 vaccination is not mandatory, most governing bodies of each country highly advise people to wear a mask to help restrict the spread of the virus.
-The WHO and the CDC have also suggested using face masks to decrease the spread of the virus. 
+Since covid-19 vaccination is not mandatory, most governing bodies of each country still highly advise people get vaccinations and continue to practice proper social distancing protocols. The WHO and the CDC have also suggested using face masks to decrease the spread of the virus. 
 
 Face masks effectively trapping the droplets discharged from a person's mouth while communicating, sneezing, or coughing. Facemask is most effective when it covers the mouth and the nose to trap the water droplets. 
 
