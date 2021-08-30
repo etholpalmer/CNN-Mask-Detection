@@ -1,7 +1,7 @@
-import  mask_detect as md, face_detect as fd
+import  mask_detect as md, face_detect as fd, face_detector as fdd
 
 import argparse
-import cv2
+# import cv2
 import os
 
 from numpy import record
@@ -24,8 +24,10 @@ chkMask = md.Mask_Detect()
 records = {}
 for file in filenames:
     fi = fd.Face_Detect(file_name=file)
-    records[fi.file_name] = chkMask.Mask_Check(
-                                fi.results[fi.file_name][0][0]
-                            )
+    if fi is not None and len(fi.results)>0:
+        records[fi.file_name] = chkMask.Mask_Check(
+                                    fi.results[fi.file_name][0][0]
+                                )
+    del fi
 
 print(records)

@@ -13,7 +13,10 @@ class Face_Detect:
             , file_name
             , confidence=0.5
             , net_mdl=fdd.Face_Detector.Get_Mdl()) -> None:
-        image_failed = False
+        
+        successful_process = False
+        success = False
+
         self.file_name            = file_name if os.path.exists(file_name) else None
         self.image                = cv2.imread(self.file_name)
         self.results              = {}
@@ -21,7 +24,7 @@ class Face_Detect:
         self.net_mdl              = net_mdl
 
         print(f"The file ({self.file_name}) exists => {os.path.exists(self.file_name)}")
-
+        
         def get_face(X_begin, Y_begin, X_end, Y_end):
             try:
                 if self.image is not None:
@@ -29,15 +32,19 @@ class Face_Detect:
                     face = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
                     face = cv2.resize(src=face,dsize=(224,224))
                     face = img_to_array(face)
-                    return np.expand_dims(face, axis=0)
+
+                    successful_process = True
+
+                    rVal = (successful_process, np.expand_dims(face, axis=0))
                 else:
-                    image_failed = True
-                    return None
+                    rVal = (False, None)
             except Exception as excn:
-                image_failed = True
-                return None
+                print("This is an error:", excn.args)
+                rVal = (False, None)
             else:
-                return face
+                pass
+
+            return rVal
 
         def get_measurements(poss_faces):
             outline = poss_faces[0,0,x, 3:7] * np.array([self.width,self.height,self.width,self.height])
@@ -59,15 +66,14 @@ class Face_Detect:
             conf = possible_faces[0,0,x,2]
             if conf > confidence:
                 x1,y1,x2,y2 = get_measurements(poss_faces=possible_faces)
-                f = get_face(x1,y1,x2,y2)
-                if f is not None:
+                success, f = get_face(x1,y1,x2,y2)
+                if success and f is not None:
                     faces_info.append((f,conf))
-
-        if not image_failed:
+                else:
+                    break
+        if success:
             self.results[file_name]=faces_info
-        else:
-            print(f"Failed to process image:{file_name}")
-            self.results[file_name]=None
+        
 
     def __del__(self):
         print("Exiting Face Detect Class.")
@@ -75,7 +81,7 @@ class Face_Detect:
 
 if __name__ == "__main__":
     file1 = Face_Detect("./dataset/with_mask/100-with-mask.jpg")
-
-    for fi in file1.results[file1.file_name]:
-        if fi[0] is not None:
+    if file1 is not None and len(file1.results)>0:
+        for fi in file1.results[file1.file_name]:
+            # if fi[0] is not None:
             print(fi[0].shape)
