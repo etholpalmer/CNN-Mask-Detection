@@ -27,7 +27,7 @@ Our facemask model aims to detect whether or not a person is wearing a mask or n
 
 ____
 
-## Objective
+## Objectives
 
 1. Deploy a facemask detection model for images and videos. 
 
