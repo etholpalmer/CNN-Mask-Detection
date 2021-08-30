@@ -1,6 +1,6 @@
 # Project-Two: Mask Detection 
 
-## [Grace Zai](https://github.com/Gracezai) , [John Mangahas](https://github.com/AdoboPeanuts/) , [Martin Mangahas](https://github.com/martsymarts/) , [Ethol Palmer](https://github.com/etholpalmer/) , [Monique Rowe](https://github.com/moniquerowe15)
+## [Grace Zai](https://github.com/Gracezai) , [John Mangahas](https://github.com/AdoboPeanuts) , [Martin Mangahas](https://github.com/martsymarts) , [Ethol Palmer](https://github.com/etholpalmer) , [Monique Rowe](https://github.com/moniquerowe15)
 ___
 
 ## Background
@@ -38,6 +38,9 @@ ____
 ## Resources
 
 [Centers for Disease Control and Prevention](https://www.cdc.gov/coronavirus/2019-ncov/index.html)
+
+[Pixabay](https://pixabay.com)
+
 
 [World Health Organization](https://www.who.int/emergencies/diseases/novel-coronavirus-2019?gclid=CjwKCAjw4KyJBhAbEiwAaAQbE3O7yveOsQJ_C1R67BxYZAaP6GEBrZaySy3sUnYLsotZm_bRZC4rKBoCCsQQAvD_BwE)
 
