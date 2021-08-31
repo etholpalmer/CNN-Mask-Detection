@@ -30,7 +30,7 @@ class Face_Detector:
 
 if __name__ == "__main__":
     mdl = Face_Detector().Get_Mdl()
-    img = cv2.imread("./dataset/with_mask/100-with-mask.jpg")
+    img = cv2.imread(".Dataset/test_photos/with_mask/100-with-mask.jpg")
     fixed_param = (104.0, 177.0, 123.0)
     img_blob = cv2.dnn.blobFromImage(img,1,(300,300), fixed_param)
     mdl.setInput(img_blob)

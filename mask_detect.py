@@ -23,7 +23,7 @@ class Mask_Detect:
 
 if __name__ == "__main__":
     import face_detect as fd
-    file_info = fd.Face_Detect("./dataset/with_mask/0-with-mask.jpg")
+    file_info = fd.Face_Detect("./Dataset/test_photos/with_mask/0-with-mask.jpg")
     
     f = Mask_Detect()
     print(f.Mask_Check(file_info.results[file_info.file_name][0][0]))

@@ -8,9 +8,9 @@ from numpy import record
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dir", required=True,
-	default="./dataset/with_mask",
+	default="./Dataset/test_photos/with_mask",
 	help="path to input images directory")
-args = vars(ap.parse_args(args=["-d=dataset/with_mask"]))
+args = vars(ap.parse_args(args=["-d=Dataset/test_photos/with_mask"]))
 
 # Get all the files from the args["dir"] folder
 filenames = [
