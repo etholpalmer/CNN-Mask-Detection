@@ -5,7 +5,7 @@ import boto3
 
 # adjusted initial code to only identify masks.
 
-# will need to creat a s3 bucket for this particular project to be able to deploy the module.
+# will need to create a s3 bucket for this particular project to be able to deploy the module.
 
 def detect_labels(photo, bucket):
 
