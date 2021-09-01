@@ -31,7 +31,11 @@ ____
 
 1. Deploy a facemask detection model for images and videos. 
 
-2. Deploy a chatbot that provides facemask detection helpdesk using Amazon Lex.
+2. To compare the deployed face detector program with IBM Watson.
+
+3. Deploy a chatbot that provides facemask detection helpdesk using Amazon Lex.
+
+4. To compare the deployed Lex bot to Amazon Rekognition sof
 
 ____
 
