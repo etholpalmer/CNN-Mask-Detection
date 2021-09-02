@@ -1,11 +1,14 @@
+# Import necessary modules
 import  mask_detect as md, face_detect as fd, face_detector as fdd
-
+# Import argparse to write user-friedly command-line interfaces
 import argparse
 # import cv2
 import os
 
 from numpy import record
 
+# Construct the argument parser and parse the arguments 
+ # The path to dataset of testing images (with masks) on disk
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dir", required=True,
 	default="./Dataset/test_photos/with_mask",
@@ -21,6 +24,7 @@ filenames = [
 
 chkMask = md.Mask_Detect()
 
+# Display results/figures for all images if there is face detected
 records = {}
 for file in filenames:
     fi = fd.Face_Detect(file_name=file)
