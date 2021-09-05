@@ -31,11 +31,13 @@ ____
 
 1. Deploy a facemask detection model for images and videos. 
 
-2. To compare the deployed face detector program with IBM Watson.
+2. Use Amazon Rekognition software to validate datasets.
 
-3. Deploy a chatbot that provides facemask detection helpdesk using Amazon Lex.
+## Milestone Objective
 
-4. To compare the deployed Lex bot to Amazon Rekognition sof
+1. Create a Lambda function that will use Amazon Rekognition
+
+2. Deploy Amazon Lex chatbot with AWS Rekognition capabilities
 
 ____
 
