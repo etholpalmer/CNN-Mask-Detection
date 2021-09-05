@@ -4,7 +4,7 @@
 # import the necessary packages
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
-from tensorflow.keras.layers import AveragePooling2D
+from tensorflow.keras.layers import AveragePooling2D, GlobalAveragePooling2D
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Dense
@@ -14,7 +14,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
-from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical, plot_model
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -31,18 +31,32 @@ ap.add_argument("-d", "--dataset", required=True,
 ap.add_argument("-p", "--plot", type=str, default="plot.png",
 	help="path to output loss/accuracy plot")
 ap.add_argument("-m", "--model", type=str,
-	default="mask_detector.model",
+	default="./Models/original_mask_detector.model",
 	help="path to output face mask detector model")
-#args = vars(ap.parse_args())
-args = {}
-args["dataset"] = "./dataset"
-args["plot"]    = "plot.png"
+ap.add_argument("-e", "--epochs",     type=int, 	default=20, 			help="The number of epochs to generate")
+ap.add_argument("-b", "--batchsize",  type=int, 	default=32, 			help="Batch Size")
+ap.add_argument("-bm", "--basemodel", type=str, 	default="MobileNetV2", 	help="Base Model")
+ap.add_argument("-lr", "--learnrate", type=float, 	default=1e-4, 			help="The Learning Rate")
+args = vars(ap.parse_args())
+#args = vars(ap.parse_args(args=["-d=./dataset"]))
+#args = vars(ap.parse_args(args=["-d=examples"]))
+
+# args = {}
+# args["dataset"] = "./dataset"
+mdl_details 	= f"{args['epochs']}_batch-{args['batchsize']}_basemodel-{args['basemodel']}_learnrate-{args['learnrate']}"
+args["plot"]    = f"./Results/plot_epoch-{mdl_details}.png"
+args["model"]	= f"./Models/mask_detector_epoch-{mdl_details}.model"
+
+# print(mdl_details)
+# print(args["epochs"])
+# print(args)
+# exit(0)
 
 # initialize the initial learning rate, number of epochs to train for,
 # and batch size
-INIT_LR = 1e-4
-EPOCHS = 20
-BS = 32
+INIT_LR = args['learnrate']	# 1e-4
+EPOCHS = args['epochs'] # 20
+BS = args['batchsize']	# 32
 
 # grab the list of images in our dataset directory, then initialize
 # the list of data (i.e., images) and class images
@@ -76,8 +90,7 @@ labels = to_categorical(labels)
 
 # partition the data into training and testing splits using 75% of
 # the data for training and the remaining 25% for testing
-(trainX, testX, trainY, testY) = train_test_split(data, labels,
-	test_size=0.20, stratify=labels, random_state=42)
+(trainX, testX, trainY, testY) = train_test_split(data, labels,	test_size=0.20, stratify=labels, random_state=42)
 
 # construct the training image generator for data augmentation
 aug = ImageDataGenerator(
@@ -89,10 +102,13 @@ aug = ImageDataGenerator(
 	horizontal_flip=True,
 	fill_mode="nearest")
 
-# load the MobileNetV2 network, ensuring the head FC layer sets are
-# left off
-baseModel = MobileNetV2(weights="imagenet", include_top=False,
-	input_tensor=Input(shape=(224, 224, 3)))
+if args["basemodel"] == "MobileNetV2":
+	# load the MobileNetV2 network, ensuring the head FC layer sets are left off
+	baseModel = MobileNetV2(weights="imagenet", include_top=False,
+		input_tensor=Input(shape=(224, 224, 3)))
+else:
+	baseModel = MobileNetV2(weights="imagenet", include_top=False,
+		input_tensor=Input(shape=(224, 224, 3)))
 
 # construct the head of the model that will be placed on top of the
 # the base model
@@ -112,9 +128,9 @@ model = Model(inputs=baseModel.input, outputs=headModel)
 for layer in baseModel.layers:
 	layer.trainable = False
 
-# compile our model
+# compile the model
 print("[INFO] compiling model...")
-opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+opt = Adam(learning_rate=INIT_LR, decay=INIT_LR / EPOCHS)
 model.compile(loss="binary_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
@@ -129,19 +145,31 @@ H = model.fit(
 
 # make predictions on the testing set
 print("[INFO] evaluating network...")
-predIdxs = model.predict(testX, batch_size=BS)
+predIdxs = model.predict(x=testX, batch_size=BS)
 
 # for each image in the testing set we need to find the index of the
 # label with corresponding largest predicted probability
 predIdxs = np.argmax(predIdxs, axis=1)
 
 # show a nicely formatted classification report
-print(classification_report(testY.argmax(axis=1), predIdxs,
+class_report=str(classification_report(testY.argmax(axis=1), predIdxs,
 	target_names=lb.classes_))
+with open(f"./Results/class_report_{mdl_details}.txt","w") as save:
+	save.write(class_report)
+print(class_report)
 
-# serialize the model to disk
+# Save the model
 print("[INFO] saving mask detector model...")
 model.save(args["model"], save_format="h5")
+
+# Save the model Summary (text)
+mdl_summary = str(model.summary())
+with open(f"./Results/model_summary_{mdl_details}.txt","w") as save:
+	save.write(mdl_summary)
+print(mdl_summary)
+
+# Save the model structure
+plot_model(model, to_file=f"./Results/model_struct_{mdl_details}.jpg")
 
 # plot the training loss and accuracy
 N = EPOCHS

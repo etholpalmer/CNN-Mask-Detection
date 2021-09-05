@@ -23,7 +23,8 @@ ap.add_argument("-m", "--model", type=str,
 	help="path to trained face mask detector model")
 ap.add_argument("-c", "--confidence", type=float, default=0.5,
 	help="minimum probability to filter weak detections")
-args = vars(ap.parse_args(["-i=./examples/example_01.png"]))
+args = vars(ap.parse_args(["-i=./dataset/with_mask/100-with-mask.jpg"]))
+# args = vars(ap.parse_args(["-i=./examples/example_01.png"]))
 
 # load our serialized face detector model from disk
 print("[INFO] loading face detector model...")
