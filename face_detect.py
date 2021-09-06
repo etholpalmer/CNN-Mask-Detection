@@ -1,9 +1,12 @@
+# Import Library
+
+
 from tensorflow.python.keras.backend import shape
 import numpy as np
 import os
 import cv2
 
-# from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+# From tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 
 import face_detector as fdd
@@ -52,7 +55,7 @@ class Face_Detect:
 
                 return max(0,X_begin), max(0, Y_begin), min(self.width -1, X_end), min(self.height-1, Y_end)
 
-            # self.image = cv2.imread(filename=self.file_name)
+            # Self.image = cv2.imread(filename=self.file_name)
             fixed_param = (104.0, 177.0, 123.0)
             img_blob = cv2.dnn.blobFromImage(self.image,1,(300,300), fixed_param)
             self.net_mdl.setInput(img_blob)
@@ -60,8 +63,7 @@ class Face_Detect:
             possible_faces = self.net_mdl.forward()
 
             faces_info = []
-            # for each face detected with a confidence level
-            # above the threshold keep a reference of it.
+            # For each face detected with a confidence level above the threshold keep a reference of it.
             for x in range(possible_faces.shape[2]):
                 conf = possible_faces[0,0,x,2]
                 if conf > confidence:
