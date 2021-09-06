@@ -166,7 +166,7 @@ predIdxs = np.argmax(predIdxs, axis=1)
 # Show a nicely formatted classification report
 class_report=str(classification_report(testY.argmax(axis=1), predIdxs,
 	target_names=lb.classes_))
-with open(f"./Results/class_report_{mdl_details}.txt","w") as save:
+with open(f"./results/class_report_{mdl_details}.txt","w") as save:
 	save.write(class_report)
 print(class_report)
 
@@ -176,12 +176,12 @@ model.save(args["model"], save_format="h5")
 
 # Save the model Summary (text)
 mdl_summary = str(model.summary())
-with open(f"./Results/model_summary_{mdl_details}.txt","w") as save:
+with open(f"./results/model_summary_{mdl_details}.txt","w") as save:
 	save.write(mdl_summary)
 print(mdl_summary)
 
 # Save the model structure
-plot_model(model, to_file=f"./Results/model_struct_{mdl_details}.jpg")
+plot_model(model, to_file=f"./results/model_struct_{mdl_details}.jpg")
 
 # Plot the training loss and accuracy
 N = EPOCHS

@@ -1,6 +1,5 @@
 # Import Library
 
-
 from tensorflow.python.keras.backend import shape
 import numpy as np
 import os

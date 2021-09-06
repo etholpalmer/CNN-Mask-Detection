@@ -26,7 +26,7 @@ class Face_Detector:
             return None
 
     def __del__(self):
-        print("Face_Detector Exited.")
+        print("face_detector Exited.")
 
 if __name__ == "__main__":
     mdl = Face_Detector().Get_Mdl()
