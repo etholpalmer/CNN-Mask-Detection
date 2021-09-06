@@ -24,7 +24,7 @@ filenames = [
                 or os.path.splitext(x)[1].lower()=='.png'
             ]
 
-chkMask = md.Mask_Detect(mask_mdl="mask_detector-epoch-1.model")
+chkMask = md.Mask_Detect(mask_mdl="./models/mask_detector-epoch-1.model")
 
 records = {}
 for file in filenames:

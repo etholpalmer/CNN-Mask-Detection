@@ -6,7 +6,7 @@ from numpy import ndarray
 
 class Mask_Detect:
     def __init__(self
-            , mask_mdl:str="original_mask_detector.model"
+            , mask_mdl:str="./models/original_mask_detector.model"
     ) -> None:
         (self.mask_conf, self.no_mask_conf) = (0.0, 0.0)
         self.face_mask_mdl = load_model(mask_mdl)
