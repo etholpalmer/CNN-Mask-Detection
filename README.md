@@ -41,6 +41,11 @@ ____
 
 ____
 
+## Deploying Amazon Recognition Locally
+
+
+
+____
 ## Resources
 
 [Centers for Disease Control and Prevention](https://www.cdc.gov/coronavirus/2019-ncov/index.html)
