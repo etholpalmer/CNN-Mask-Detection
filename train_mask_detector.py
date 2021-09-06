@@ -1,7 +1,8 @@
 # USAGE
 # python train_mask_detector.py --dataset dataset
 
-# import the necessary packages
+# Import the necessary packages
+# Import tensorflow.keras for data augmentation, fine-tune model, building new fully-connected head, pre-processing and loading image data
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.layers import AveragePooling2D, GlobalAveragePooling2D
@@ -15,16 +16,32 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.utils import to_categorical, plot_model
+
+# Import from sklearn for binarizing class labels, segmenting dataset, and printing classification report
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+
+# Import imutils paths to find and list images in the dataset
 from imutils import paths
+
+# Import matplotlib to plot training curves
 import matplotlib.pyplot as plt
+
+# Import numpy for numberical processing
 import numpy as np
+
+# Import argparse to write user-friedly command-line interfaces
 import argparse
+
+# Import os to build file/directory paths directly 
 import os
 
-# construct the argument parser and parse the arguments
+# Construct the argument parser and parse the arguments 
+ # 1. The path to dataset of images on disk
+ # 2. The path to the output training plot
+ # 3. The path to the output mask detector model
+ 
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dataset", required=True,
 	help="path to input dataset")
@@ -52,47 +69,44 @@ args["model"]	= f"./Models/mask_detector_epoch-{mdl_details}.model"
 # print(args)
 # exit(0)
 
-# initialize the initial learning rate, number of epochs to train for,
-# and batch size
+# Initialize the initial learning rate, number of epochs to train for, and batch size
 INIT_LR = args['learnrate']	# 1e-4
 EPOCHS = args['epochs'] # 20
 BS = args['batchsize']	# 32
 
-# grab the list of images in our dataset directory, then initialize
-# the list of data (i.e., images) and class images
+# Grab the list of images in our dataset directory, then initialize the list of data (i.e., images) and class images
 print("[INFO] loading images...")
 imagePaths = list(paths.list_images(args["dataset"]))
 data = []
 labels = []
 
-# loop over the image paths
+# Loop over the image paths
 for imagePath in imagePaths:
-	# extract the class label from the filename
+	# Extract the class label from the filename
 	label = imagePath.split(os.path.sep)[-2]
 
-	# load the input image (224x224) and preprocess it
+	# Load the input image (224x224) and preprocess it
 	image = load_img(imagePath, target_size=(224, 224))
 	image = img_to_array(image)
 	image = preprocess_input(image)
 
-	# update the data and labels lists, respectively
+	# Update the data and labels lists, respectively
 	data.append(image)
 	labels.append(label)
 
-# convert the data and labels to NumPy arrays
+# Convert the data and labels to NumPy arrays
 data = np.array(data, dtype="float32")
 labels = np.array(labels)
 
-# perform one-hot encoding on the labels
+# Perform one-hot encoding on the labels
 lb = LabelBinarizer()
 labels = lb.fit_transform(labels)
 labels = to_categorical(labels)
 
-# partition the data into training and testing splits using 75% of
-# the data for training and the remaining 25% for testing
+# Partition the data into training and testing splits using 75% of the data for training and the remaining 25% for testing
 (trainX, testX, trainY, testY) = train_test_split(data, labels,	test_size=0.20, stratify=labels, random_state=42)
 
-# construct the training image generator for data augmentation
+# Construct the training image generator for data augmentation
 aug = ImageDataGenerator(
 	rotation_range=20,
 	zoom_range=0.15,
@@ -103,15 +117,14 @@ aug = ImageDataGenerator(
 	fill_mode="nearest")
 
 if args["basemodel"] == "MobileNetV2":
-	# load the MobileNetV2 network, ensuring the head FC layer sets are left off
+	# Load the MobileNetV2 network, ensuring the head FC layer sets are left off
 	baseModel = MobileNetV2(weights="imagenet", include_top=False,
 		input_tensor=Input(shape=(224, 224, 3)))
 else:
 	baseModel = MobileNetV2(weights="imagenet", include_top=False,
 		input_tensor=Input(shape=(224, 224, 3)))
 
-# construct the head of the model that will be placed on top of the
-# the base model
+# Construct the head of the model that will be placed on top of the base model
 headModel = baseModel.output
 headModel = AveragePooling2D(pool_size=(7, 7))(headModel)
 headModel = Flatten(name="flatten")(headModel)
@@ -119,22 +132,21 @@ headModel = Dense(128, activation="relu")(headModel)
 headModel = Dropout(0.5)(headModel)
 headModel = Dense(2, activation="softmax")(headModel)
 
-# place the head FC model on top of the base model (this will become
-# the actual model we will train)
+# Place the head FC model on top of the base model (this will become the actual model we will train)
 model = Model(inputs=baseModel.input, outputs=headModel)
 
-# loop over all layers in the base model and freeze them so they will
+# Loop over all layers in the base model and freeze them so they will
 # *not* be updated during the first training process
 for layer in baseModel.layers:
 	layer.trainable = False
 
-# compile the model
+# Compile the model
 print("[INFO] compiling model...")
 opt = Adam(learning_rate=INIT_LR, decay=INIT_LR / EPOCHS)
 model.compile(loss="binary_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
-# train the head of the network
+# Train the head of the network
 print("[INFO] training head...")
 H = model.fit(
 	aug.flow(trainX, trainY, batch_size=BS),
@@ -143,15 +155,15 @@ H = model.fit(
 	validation_steps=len(testX) // BS,
 	epochs=EPOCHS)
 
-# make predictions on the testing set
+# Make predictions on the testing set
 print("[INFO] evaluating network...")
 predIdxs = model.predict(x=testX, batch_size=BS)
 
-# for each image in the testing set we need to find the index of the
+# For each image in the testing set we need to find the index of the
 # label with corresponding largest predicted probability
 predIdxs = np.argmax(predIdxs, axis=1)
 
-# show a nicely formatted classification report
+# Show a nicely formatted classification report
 class_report=str(classification_report(testY.argmax(axis=1), predIdxs,
 	target_names=lb.classes_))
 with open(f"./Results/class_report_{mdl_details}.txt","w") as save:
@@ -171,7 +183,7 @@ print(mdl_summary)
 # Save the model structure
 plot_model(model, to_file=f"./Results/model_struct_{mdl_details}.jpg")
 
-# plot the training loss and accuracy
+# Plot the training loss and accuracy
 N = EPOCHS
 plt.style.use("ggplot")
 plt.figure()
