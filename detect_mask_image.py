@@ -13,18 +13,20 @@ import os
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True,
-	default="./examples/example_01.png",
+	default="./Examples/example_01.png",
 	help="path to input image")
 ap.add_argument("-f", "--face", type=str,
 	default="face_detector",
 	help="path to face detector model directory")
 ap.add_argument("-m", "--model", type=str,
-	default="mask_detector.model",
+	default="./models/original_mask_detector.model",
 	help="path to trained face mask detector model")
 ap.add_argument("-c", "--confidence", type=float, default=0.5,
 	help="minimum probability to filter weak detections")
-args = vars(ap.parse_args(["-i=./dataset/with_mask/100-with-mask.jpg"]))
+args = vars(ap.parse_args(["-i=./dataset/extra_datasets/b&w_photos/new_without_mask/seed0009.png"]))
+# args = vars(ap.parse_args(["-i=./Examples/example_05.png"]))
 # args = vars(ap.parse_args(["-i=./examples/example_01.png"]))
+# ./dataset/extra_datasets/b&w_photos/new_without_mask/seed0009.png
 
 # load our serialized face detector model from disk
 print("[INFO] loading face detector model...")

@@ -60,9 +60,9 @@ args = vars(ap.parse_args())
 
 # args = {}
 # args["dataset"] = "./dataset"
-mdl_details 	= f"{args['epochs']}_batch-{args['batchsize']}_basemodel-{args['basemodel']}_learnrate-{args['learnrate']}"
-args["plot"]    = f"./Results/plot_epoch-{mdl_details}.png"
-args["model"]	= f"./models/mask_detector_epoch-{mdl_details}.model"
+mdl_details 	= f"epochs-{args['epochs']}_batch-{args['batchsize']}_basemodel-{args['basemodel']}_learnrate-{args['learnrate']}"
+args["plot"]    = f"./Results/plot_{mdl_details}.png"
+args["model"]	= f"./models/mask_detector_{mdl_details}.model"
 
 # print(mdl_details)
 # print(args["epochs"])

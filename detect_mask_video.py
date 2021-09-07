@@ -27,7 +27,7 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 	# initialize our list of faces, their corresponding locations,
 	# and the list of predictions from our face mask network
 	faces = []
-	locs = []
+	locs  = []
 	preds = []
 
 	# loop over the detections
