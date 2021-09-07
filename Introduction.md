@@ -8,4 +8,7 @@ Introduction:
    
 Purpose of the Project:
     
-    The purpose of the project is to create an algorithm that recognizes whether an individual is wearing a facemask
+    The purpose of the project is to create an algorithm that recognizes whether an individual is wearing a facemask when their image is captured.
+    
+Methodolody:
+
