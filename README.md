@@ -24,31 +24,73 @@ Face masks effectively trapping the droplets discharged from a person's mouth wh
 
 Our facemask model aims to detect whether or not a person is wearing a mask or not. 
 
+____
+
+![Motivation&Summary](Images/slides/Slide6.jpg)
 
 ____
 
-## Objectives
 
-1. Deploy a facemask detection model for images and videos. 
+![Process&Workflow](Images/slides/Slide7.jpg)
 
-2. Use Amazon Rekognition software to validate datasets.
-
-## Milestone Objective
-
-1. Create a Lambda function that will use Amazon Rekognition
-
-2. Deploy Amazon Lex chatbot with AWS Rekognition capabilities
 
 ____
 
-## Deploying Amazon Recognition Locally
+![Predictions](Images/slides/Slide8.jpg)
 
+____
 
+![Technologies/Tools/Library](Images/slides/Slide9.jpg)
 
+____
+----
+# Metrics
+
+Class Report for different basemodels with varying hyperparameters
+----
+![Technologies/Tools/Library](Images/slides/Slide10.jpg)
+
+![Technologies/Tools/Library](Images/slides/Slide11.jpg)
+
+![Technologies/Tools/Library](Images/slides/Slide13.jpg)
+
+____
+
+# Visual Outputs
+
+![VisualOutputs](Images/slides/Slide15.jpg)
+
+![VisualOutputs](Images/slides/Slide16.jpg)
+
+____
+
+![Limitations](Images/slides/Slide17.jpg)
+
+____
+
+![Conclusions](Images/slides/Slide18.jpg)
+
+____
+
+![Postmortem](Images/slides/Slide19.jpg)
+____
+# Demo Notebook [FaceMaskDetection](Demo.ipynb)
+____
+# How to Setup AWS Rekognition (Locally)
+
+## 1. Create an IAM user with programmatic access
+## 2. Attached the following policies to the user;
+     a. AmazonS3FullAccess
+     b. AmazoRekognitionFullAccess
+## 3. Make sure the access key id and secret access key is valid
+## 4. Follow instructions on how to pass an image locally inside the provided notebook [AWS-LOCAL](aws-rekognition/aws-local.ipynb)
+## 5. Follow instructions on how to pass an image via S3 Bucket inside the provided notebook [AWS-CLOUD](aws-rekognition/aws-cloud.ipynb)
 ____
 ## Resources
 
 [Centers for Disease Control and Prevention](https://www.cdc.gov/coronavirus/2019-ncov/index.html)
+
+[Keras.io](https://keras.io/api/applications/#usage-examples-for-image-classification-models)
 
 [Pixabay](https://pixabay.com)
 
