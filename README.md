@@ -26,21 +26,21 @@ Our facemask model aims to detect whether or not a person is wearing a mask or n
 
 ____
 
-![Motivation&Summary](Images/slides/Slide6.jpg)
+![Motivation&Summary](Images/slides/Slide6.JPG)
 
 ____
 
 
-![Process&Workflow](Images/slides/Slide7.jpg)
+![Process&Workflow](Images/slides/Slide7.JPG)
 
 
 ____
 
-![Predictions](Images/slides/Slide8.jpg)
+![Predictions](Images/slides/Slide8.JPG)
 
 ____
 
-![Technologies/Tools/Library](Images/slides/Slide9.jpg)
+![Technologies/Tools/Library](Images/slides/Slide9.JPG)
 
 ____
 ----
@@ -48,31 +48,31 @@ ____
 
 Class Report for different basemodels with varying hyperparameters
 ----
-![Technologies/Tools/Library](Images/slides/Slide10.jpg)
+![Technologies/Tools/Library](Images/slides/Slide10.JPG)
 
-![Technologies/Tools/Library](Images/slides/Slide11.jpg)
+![Technologies/Tools/Library](Images/slides/Slide11.JPG)
 
-![Technologies/Tools/Library](Images/slides/Slide13.jpg)
+![Technologies/Tools/Library](Images/slides/Slide13.JPG)
 
 ____
 
 # Visual Outputs
 
-![VisualOutputs](Images/slides/Slide15.jpg)
+![VisualOutputs](Images/slides/Slide15.JPG)
 
-![VisualOutputs](Images/slides/Slide16.jpg)
-
-____
-
-![Limitations](Images/slides/Slide17.jpg)
+![VisualOutputs](Images/slides/Slide16.JPG)
 
 ____
 
-![Conclusions](Images/slides/Slide18.jpg)
+![Limitations](Images/slides/Slide17.JPG)
 
 ____
 
-![Postmortem](Images/slides/Slide19.jpg)
+![Conclusions](Images/slides/Slide18.JPG)
+
+____
+
+![Postmortem](Images/slides/Slide19.JPG)
 ____
 # Demo Notebook [FaceMaskDetection](Demo.ipynb)
 
