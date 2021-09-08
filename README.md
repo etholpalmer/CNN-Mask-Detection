@@ -79,7 +79,7 @@ ____
 ## 1. Make sure to input valid amazon aws user key id and secret key
 ## 2. Use .env protocol to load your keys
 ____
-# How to Setup AWS Rekognition (Locally)
+# How to Setup AWS Rekognition
 
 ## 1. Create an IAM user with programmatic access
 ## 2. Attached the following policies to the user;
