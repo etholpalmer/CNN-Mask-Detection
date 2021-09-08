@@ -76,8 +76,8 @@ ____
 ____
 # Demo Notebook [FaceMaskDetection](Demo.ipynb)
 
-## 1. Make sure to input valid amazon user key id and scret key
-## 2. Use .env and load it to protect your keys
+## 1. Make sure to input valid amazon aws user key id and secret key
+## 2. Use .env protocol to load your keys
 ____
 # How to Setup AWS Rekognition (Locally)
 
