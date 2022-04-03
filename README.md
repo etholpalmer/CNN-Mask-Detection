@@ -1,4 +1,4 @@
-# Project-Two: Mask Detection 
+# Mask Detection 
 
 ## [Grace Zai](https://github.com/Gracezai) , [John Mangahas](https://github.com/AdoboPeanuts) , [Martin Mangahas](https://github.com/martsymarts) , [Ethol Palmer](https://github.com/etholpalmer) , [Monique Rowe](https://github.com/moniquerowe15)
 ___
